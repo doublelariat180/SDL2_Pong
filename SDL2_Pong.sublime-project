@@ -1,0 +1,25 @@
+{
+	"folders":
+	[
+		{
+			"path": "bin/.."
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "Debug",
+			"working_dir": "${project_path}",
+			"cmd": ["g++ -c -fPIC src/*.cpp -std=c++14 -m64 -g -Wall -I include && gcc *.o -lstdc++ -o bin/debug/main -lSDL2main -lSDL2 -lSDL2_image && ./bin/debug/main"],
+			"selector": "source.cpp",
+			"shell": true
+		},
+		{
+			"name": "Release",
+			"working_dir": "${project_path}",
+			"cmd": ["g++ -c -fPIC src/*.cpp -std=c++14 -m64 -O3 -Wall -I include && gcc *.o -lstdc++ -o bin/release/main -s -lSDL2main -lSDL2 -lSDL2_image && ./bin/release/main"],
+			"selector": "source.cpp",
+			"shell": true
+		}
+	]
+}
